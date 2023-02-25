@@ -1,5 +1,5 @@
 import {getRandomQuestion} from './data';
-import express from 'express';
+import express, {Express, Request, Response} from 'express';
 
 /*Data Types */
 
@@ -22,8 +22,16 @@ type questionData = {
 }
 
 /*Server */
-// const app : Express = express();
-// const port : number = 3000;
+const app : Express = express();
+const port : number = 3000;
+
+app.get('/', (req : Request, res : Response) => {
+    res.send("Hello");
+});
+
+app.listen(port, () => {
+    console.log("App listening on port 3000");
+});
 
 async function main() {
     try {
