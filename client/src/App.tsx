@@ -1,10 +1,10 @@
-
+import Question from './ui/Question';
 
 function App() {
   return (
     <div>
       <header>
-        Bruh Moment
+        <Question />
       </header>
     </div>
   );

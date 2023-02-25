@@ -1,5 +1,6 @@
 import {getRandomQuestion} from './data';
 import express, {Express, Request, Response} from 'express';
+import cors from 'cors';
 
 /*Data Types */
 
@@ -23,25 +24,27 @@ type questionData = {
 
 /*Server */
 const app : Express = express();
-const port : number = 3000;
-
-app.get('/', (req : Request, res : Response) => {
-    res.send("Hello");
-});
-
-app.listen(port, () => {
-    console.log("App listening on port 3000");
-});
+const port : number = 5000;
 
 async function main() {
     try {
         const test : questionData = await getRandomQuestion(["CHEMISTRY"], ["Official"]);
         console.log(test.question.tossup_question);
 
+        app.get('/questionData', (req : Request, res : Response) => {
+            res.send(test);
+        });
+
     } catch (e) {
         console.log(e);
     }
 };
+
+app.use(cors());
+
+app.listen(port, () => {
+    console.log("App listening on port 3000");
+});
 
 main();
 
