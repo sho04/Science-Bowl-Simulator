@@ -24,7 +24,7 @@ type questionData = {
 
 /*Server */
 const app : Express = express();
-const port : number = 5000;
+const port : number = 3000;
 
 let qData : questionData;
 
