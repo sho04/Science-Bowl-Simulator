@@ -93,7 +93,7 @@ function Question() {
         //setBuzz(false);
         (async () => {
 
-          await fetch("http://localhost:5000/questionData", {
+          await fetch("http://localhost:3000/questionData", {
             method : 'GET'
           })
           .then((req) => req.json())
